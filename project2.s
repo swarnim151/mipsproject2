@@ -16,3 +16,10 @@ main:
     la $a0, Input_askUser
     li $a1, 2000
     syscall
+
+la $a1, Input_askUser
+    li $t0, 0                #t0 remains 0 until a valid character is entered. Then, it changes to 1 this distinction is necessary to find out if the input is valid or not
+
+loop_find4characters:
+    lb $a0,($a1)                    # load the first byte the first time the loop executes and subsequent bytes after that
+    addi $a1, $a1, 1                # add 1 to the memory location, the goal is to load the next byte when the loop runs again
