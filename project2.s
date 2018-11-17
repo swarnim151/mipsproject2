@@ -138,3 +138,11 @@ Input_isInvalidlabel:
 check_forspace:
     beq $a3, 1, Input_isInvalidlabel
     j loop_findvalue            #
+
+#the loop will stop the program will exit if it has gone through all values
+check_if_loop_continues:
+    li $v0, 1
+    add $a0, $zero, $t8
+    syscall
+    j exit
+
