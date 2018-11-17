@@ -127,3 +127,10 @@ emptyInputlabel:
     la $a0, emptyInput
     syscall
     j exit
+#When we check if the character is a number or a letter, this label will execute if we find an invalid character.It prints ""Invalid base-35 number." and ends the program
+Input_isInvalidlabel:
+    li $v0, 4
+    la $a0, Input_isInvalid
+    syscall
+    j exit
+
