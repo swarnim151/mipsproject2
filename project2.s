@@ -40,3 +40,9 @@ loop_find4characters:
 
 # Storing the character and the next three charcters after that as mentioned above
     la $t9, users_inputstorage
+    lb $a0, -1($a1)
+    sb $a0, 0($t9)
+
+    lb $a0, 0($a1)
+    sb $a0, 1($t9)
+    addi $a1, $a1, 1    #adding 1 to the address as we take additional characters
