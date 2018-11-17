@@ -146,3 +146,10 @@ check_if_loop_continues:
     syscall
     j exit
 
+#findvalue will mutliply the value of the string with the exponent and add it to the sum
+findvalue:
+    mul $t6, $t1, $t0
+    add $t8, $t8, $t6
+    mul $t1, $t1, 35
+    j loop_findvalue
+
