@@ -23,3 +23,8 @@ la $a1, Input_askUser
 loop_find4characters:
     lb $a0,($a1)                    # load the first byte the first time the loop executes and subsequent bytes after that
     addi $a1, $a1, 1                # add 1 to the memory location, the goal is to load the next byte when the loop runs again
+
+    beq $a0, 0, loop1_exit_check        #checking if the input character is a null character. the ascii value of the null character is 0
+
+    beq $a0, 10, loop1_exit_check
+#checking if the input character is newline. the ascii value of the newline is 10
