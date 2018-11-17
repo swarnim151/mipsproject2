@@ -61,3 +61,11 @@ loop_find4characters:
 
     loop1_exit_check:
     beq $t0, 0, emptyInputlabel         # The null character can be at many places in the input depending upon the length of the input. However, if it occurs before any character(expect space) then the input is empty. We know that no characters(expect space) have been analysed if $t0 = 0. So, if $t0 = 0, then the string is empty
+
+# Initialysing registers that hold values needed to calculate the value if the string is valid
+    li $t8, 0
+    li $t1, 1
+    li $t2, 0
+
+la $t9, users_inputstorage +4
+
