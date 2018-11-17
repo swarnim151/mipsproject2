@@ -77,3 +77,15 @@ loop_findvalue:
     lb $t3, ($t9)                # loading the value of the byte to $t3
 
     beq $t3, 10, loop_findvalue      # check if the character is a new line. We will ignore it if it is
+
+    beq $t3, 32, check_forspace        # check if the character is a space. We will ignore it if it is
+
+    beq $t3, 0, loop_findvalue        # check if the character is a null. We will ignore it if it is
+
+    li $a3, 1                # initializing the value as we reach the last valid character
+
+#characater could be numbers or letters
+
+#For numbers
+    slti $t4, $t3, 58                     #anything below 58 is either a number or invalid
+    li $t5, 47
