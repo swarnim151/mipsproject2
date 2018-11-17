@@ -28,3 +28,15 @@ loop_find4characters:
 
     beq $a0, 10, loop1_exit_check
 #checking if the input character is newline. the ascii value of the newline is 10
+
+    beq $a0, 32, loop_find4characters
+#checking if the input character is a spacebar, i.e ' '. the ascii value of the space is 32
+
+    beq $t0, 1, Input_isLonglabel
+# if the input charcter is not space,newline or null, then it is either a valid charcter or invalid character. Regardless, this is the first character we analyse. Then we take that and the next three characters after it in a row and also set the value of t0  to 1. If we find another non-space character after that then the input is too long. $t0 is set as 1 in this case and the code executes the "Input_isLonglabel" part and send the "Input is long" message and ends(exits)
+
+    li $t0, 1
+# setting the value of $t0 value to 1 as mentioned above
+
+# Storing the character and the next three charcters after that as mentioned above
+    la $t9, users_inputstorage
