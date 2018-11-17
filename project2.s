@@ -115,3 +115,9 @@ loop_findvalue:
     j findvalue
 
 
+#when we find a character that is not space, null or newline after the first we store the first four characters we need to analyse, this label is executed. It prints "Input is too long." and ends the program
+Input_isLonglabel:
+    li $v0, 4
+    la $a0, Input_isLong
+    syscall
+    j exit
