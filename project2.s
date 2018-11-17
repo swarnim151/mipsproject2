@@ -55,3 +55,9 @@ loop_find4characters:
 #After this four characters are stored
 
     sb $a0, 3($t9)
+
+    addi $a1, $a1, 1     #adding 1 to the address as we take additional characters
+    j loop_find4characters
+
+    loop1_exit_check:
+    beq $t0, 0, emptyInputlabel         # The null character can be at many places in the input depending upon the length of the input. However, if it occurs before any character(expect space) then the input is empty. We know that no characters(expect space) have been analysed if $t0 = 0. So, if $t0 = 0, then the string is empty
