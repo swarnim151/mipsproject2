@@ -94,3 +94,10 @@ loop_findvalue:
     and $t5, $t5, $t4
     addi $t0, $t3, -48            # t0 stores the actual value of the number
     beq $t5, 1, findvalue
+
+#For Capital letters
+    slti $t4, $t3, 95             #anything below 95 are capital letters or invalid
+    li $t5, 64
+    slt $t5, $t5, $t3
+    and $t5, $t5, $t4
+    addi $t0, $t3, -55
