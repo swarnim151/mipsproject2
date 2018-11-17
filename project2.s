@@ -121,3 +121,9 @@ Input_isLonglabel:
     la $a0, Input_isLong
     syscall
     j exit
+#If the string has no characters or if the string has only space in it, then this label executes. It prints "Input is empty." and ends the program
+emptyInputlabel:
+    li $v0, 4
+    la $a0, emptyInput
+    syscall
+    j exit
