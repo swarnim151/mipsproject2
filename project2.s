@@ -69,3 +69,11 @@ loop_find4characters:
 
 la $t9, users_inputstorage +4
 
+loop_findvalue:
+    beq $t2, 4, check_if_loop_continues        #this checks if we have gone through all the values. It ends the loop
+    addi $t2, $t2, 1                    # incresing value of the loop count as we loop through the string from behind
+
+    addi $t9, $t9, -1                   #increasing the value of the address by 1.In the next loop we look at the 2nd last, then 2nd and 1st chracter
+    lb $t3, ($t9)                # loading the value of the byte to $t3
+
+    beq $t3, 10, loop_findvalue      # check if the character is a new line. We will ignore it if it is
