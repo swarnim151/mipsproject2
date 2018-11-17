@@ -153,3 +153,7 @@ findvalue:
     mul $t1, $t1, 35
     j loop_findvalue
 
+#The program exits after printing the result
+exit:
+    li $v0, 10
+    syscall
