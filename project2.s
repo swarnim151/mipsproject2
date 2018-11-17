@@ -10,3 +10,9 @@
 .text
 
 main:
+
+#aprompting the user to input the string
+    li $v0, 8
+    la $a0, Input_askUser
+    li $a1, 2000
+    syscall
