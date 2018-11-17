@@ -134,3 +134,7 @@ Input_isInvalidlabel:
     syscall
     j exit
 
+# checking if there is a space in between two valid characters. Like "abc" is valid but "ab c" is invalid
+check_forspace:
+    beq $a3, 1, Input_isInvalidlabel
+    j loop_findvalue            #
